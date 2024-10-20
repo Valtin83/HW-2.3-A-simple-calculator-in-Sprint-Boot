@@ -12,18 +12,13 @@ public class CalculatorController {
     @GetMapping
     public String welcome() {
         return "Добро пожаловать в калькулятор!" +
-                "  Используйте операции: plus, minus, multiply, divide. " +
-                "  Например: /calculator/calculate?num1=5&num2=3&operation=plus";
+                "Используйте операции: plus, minus, multiply, divide. " + 
+                "Например: /calculator/calculate?num1=5&num2=3&operation=plus";
     }
 
     @GetMapping(value = "/calculate")
-    public String calculate(
-            @RequestParam
-            double num1,
-            @RequestParam
-            double num2,
-            @RequestParam
-            String operation) {
+    public String calculate(@RequestParam Double num1, @RequestParam Double num2,
+            @RequestParam String operation) {
 
         switch (operation) {
             case "plus":
