@@ -13,30 +13,30 @@ public class CalculatorController {
     public String welcome() {
         return "Добро пожаловать в калькулятор!" +
                 "  Используйте операции: plus, minus, multiply, divide. " +
-                "  Например: /calculator/calculate?a=5&b=3&operation=plus ";
+                "  Например: /calculator/calculate?num1=5&num2=3&operation=plus";
     }
 
-    @GetMapping("/calculate")
+    @GetMapping(value = "/calculate")
     public String calculate(
             @RequestParam
-            double a,
+            double num1,
             @RequestParam
-            double b,
+            double num2,
             @RequestParam
             String operation) {
 
-        switch (operation.toLowerCase()) {
+        switch (operation) {
             case "plus":
-                return a + " + " + b + " = " + (a + b);
+                return num1 + " + " + num2 + " = " + (num1 + num2);
             case "minus":
-                return a + " - " + b + " = " + (a - b);
+                return num1 + " - " + num2 + " = " + (num1 - num2);
             case "multiply":
-                return a + " * " + b + " = " + (a * b);
+                return num1 + " * " + num2 + " = " + (num1 * num2);
             case "divide":
-                if (b == 0) {
+                if (num2 == 0) {
                     return "Ошибка: Деление на ноль недопустимо.";
                 }
-                return a + " / " + b + " = " + (a / b);
+                return num1 + " / " + num2 + " = " + (num1 / num2);
             default:
                 return "Ошибка: Неизвестная операция.";
         }

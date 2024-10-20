@@ -5,22 +5,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorService {
 
-    public double add(double a, double b) {
-        return a + b;
+    public double add(double num1, double num2) {
+        return num1 + num2;
     }
 
-    public double subtract(double a, double b) {
-        return a - b;
+    public double subtract(double num1, double num2) {
+        return num1 - num2;
     }
 
-    public double multiply(double a, double b) {
-        return a * b;
+    public double multiply(double num1, double num2) {
+        return num1 * num2;
     }
 
-    public double divide(double a, double b) {
-        if (b == 0) {
+    public double divide(double num1, double num2) {
+        if (num2 == 0) {
             throw new IllegalArgumentException("Деление на ноль недопустимо.");
         }
-        return a / b;
+        return num1 / num2;
     }
 }
